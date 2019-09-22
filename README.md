@@ -13,5 +13,5 @@ echo "*/5 * * * * root $(pwd)/check_interface.sh INTERFICE COMMAND >> /var/log/c
 
 ```bash
 chmod +x check_ip.sh
-echo "*/5 * * * * root $(pwd)/check_ip.sh INTERFICE COMMAND >> /var/log/check_ip 2>&1" << /etc/cron.d/check_interfaces
+echo "*/5 * * * * root $(pwd)/check_ip.sh IP COMMAND >> /var/log/check_ip 2>&1" << /etc/cron.d/check_interfaces
 ```

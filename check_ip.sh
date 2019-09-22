@@ -1,9 +1,11 @@
 #!/bin/sh
+IP=$1
+COMMAND=$2
 
-ping -c5 $1
+ping -c5 $IP
 
 if [ $? -eq 0 ]; then
     echo "ok"
 else
-    reboot
+    bash -c "$COMMAND"
 fi
