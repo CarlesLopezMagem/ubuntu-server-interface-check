@@ -2,20 +2,22 @@
 
 if [ -z "$1" ] || [ -z "$2" ]
 then
-	echo "ERROR: INTERFACE must be done."
+	echo "ERROR: INTERFACE and COMMAND must be done."
 	echo "Use: check_interface.sh INTERFACE COMMAND"
 	return
 fi
-
+MESSAGE=$(date +'%F %R')
 INTERFACE=$1
-COMMAND=$2
-echo "Selected interface: $INTERFACE"
+COMMAND=""
+MESSAGE="${MESSAGE} | Selected interface: ${INTERFACE}."
 STATUS=$(cat /sys/class/net/$INTERFACE/operstate)
 if [ $STATUS != "up" ]
 then
-	echo "$INTERFACE is down. Execute command: $COMMAND"
-	bash -c "$COMMAND"
-	return
+	COMMAND=$2
+	MESSAGE="${MESSAGE} ${INTERFACE} is down. Execute command: '${COMMAND}''"
+else
+	MESSAGE="${MESSAGE} ALL OK"
 fi
-echo "ALL OK"
+echo $MESSAGE
+bash -c "$COMMAND"
 return
