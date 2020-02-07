@@ -14,7 +14,7 @@ STATUS=$(cat /sys/class/net/$INTERFACE/operstate)
 if [ $STATUS != "up" ]
 then
 	COMMAND=$2
-	MESSAGE="${MESSAGE} ${INTERFACE} is down. Execute command: '${COMMAND}''"
+	MESSAGE="${MESSAGE} ${INTERFACE} is down. Execute command: ${COMMAND}"
 else
 	MESSAGE="${MESSAGE} ALL OK"
 fi

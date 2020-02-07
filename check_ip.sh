@@ -17,7 +17,7 @@ if [ $? -eq 0 ]; then
     MESSAGE="${MESSAGE} ALL OK"
 else
     COMMAND=$2
-	MESSAGE="${MESSAGE} IP is down. Execute command: '${COMMAND}''"
+	MESSAGE="${MESSAGE} IP is down. Execute command: ${COMMAND}"
 fi
 
 echo $MESSAGE
